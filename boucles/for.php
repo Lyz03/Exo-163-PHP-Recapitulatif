@@ -118,17 +118,30 @@ echo '<br><br>';
 //Créer un tableau pour les mois de l'année et affiché tous les mois de Janvier à Décembre
 //modifier et/ou remplacer les éléments ci-dessous
 echo "8.Les mois depuis le debut de l'annee : <br>";
-$mois = [];
-for ($i = 0; $i < 0; $i) {
-    echo '';
+$mois = [
+    "janvier",
+    "février",
+    "mars",
+    "avril",
+    "mai",
+    "juin",
+    "juillet",
+    "aout",
+    "septembre",
+    "octobre",
+    "novembre",
+    "décembre",
+];
+for ($i = 0; $i < count($mois); $i++) {
+    echo $mois[$i] . '<br>';
 }
 echo '<br><br>';
 
 //Afficher les mois de la fin de l'année jusqu'au début de l'année
 //modifier et/ou remplacer les éléments ci-dessous
 echo "9.Les mois depuis la fin de l'annee : <br>";
-for ($i = 0; $i < 0; $i) {
-    echo '';
+for ($i = count($mois); $i > 0; $i--) {
+    echo $mois[$i] . '<br>';
 }
 echo '<br><br>';
 
@@ -158,6 +171,15 @@ $college = array(
 
 echo '10.Les eleves du college : <br>';
 //ajoutez votre code ici
+
+foreach ($college as $year) {
+    foreach ($year as $student) {
+        foreach ($student as $value) {
+            echo $value . " ";
+        }
+        echo " | ";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -165,6 +187,21 @@ echo '<br><br>';
 //reprenez le tableau ci-dessus, ajoutez des éléves pour la classe de troisième et réaffichez tout
 echo '11.Les eleves du college (avec les nouveaux arrivants): <br>';
 //ajoutez votre code ici
+$college['Troisieme'] = array(
+    array("Nom" => "1", "Prenom" => "1.5"),
+    array("Nom" => "2", "Prenom" => "2.5"),
+    array("Nom" => "3", "Prenom" => "3.5"),
+    array("Nom" => "4", "Prenom" => "4.5"),
+);
+
+foreach ($college as $year) {
+    foreach ($year as $student) {
+        foreach ($student as $value) {
+            echo $value . " ";
+        }
+        echo " | ";
+    }
+}
 echo '<br><br>';
 
 //----------------------------------------
@@ -206,6 +243,27 @@ $videotheque = array(
 
 echo '12.Mes films : <br>';
 //ajoutez votre code ici
+function printArray($arrayName) {
+    foreach ($arrayName as $film) {
+        echo "<br><br>";
+
+        foreach ($film as $key => $value) {
+
+            echo $key . " : ";
+
+            if (is_array($value)) {
+                foreach ($value as $actor) {
+                    echo $actor . " | ";
+                }
+                echo "<br>";
+            } else {
+                echo $value . "<br>";
+            }
+        }
+    }
+}
+
+printArray($videotheque);
 echo '<br><br>';
 
 //----------------------------------------
@@ -216,4 +274,33 @@ echo '<br><br>';
 
 echo '13.Mes films : <br>';
 //ajoutez votre code ici
+$videotheque[] = array(
+    'nom' => 'film 1',
+    'date' => 2015,
+    'realisateur' => 'realisateur 1',
+    'acteurs' => array(
+        'acteur 1','acteur 2','acteur 3',
+    ),
+    "synopsis" => "synopsys numero 1",
+);
+$videotheque[] = array(
+    'nom' => 'film 2',
+    'date' => 2015,
+    'realisateur' => 'realisateur 2',
+    'acteurs' => array(
+        'acteur 1','acteur 2','acteur 3',
+    ),
+    "synopsis" => "synopsys numero 2",
+);
+$videotheque[] = array(
+    'nom' => 'film 3',
+    'date' => 2015,
+    'realisateur' => 'realisateur 3',
+    'acteurs' => array(
+        'acteur 1','acteur 2','acteur 3',
+    ),
+    "synopsis" => "synopsys numero 3",
+);
+
+printArray($videotheque);
 echo '<br><br>';

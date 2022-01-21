@@ -14,6 +14,9 @@
      <ul>
        <?php
           // TODO Display the students here, each student inside a new <li> element
+       foreach ($students as $value) {
+           echo "<li>$value</li>";
+       }
        ?>
      </ul>
      <hr>
@@ -23,29 +26,47 @@
        <!-- Instructions : Créer la liste de jour (en chiffres), de mois (en chiffres) et d'année en PHP. -->
        <label for="day">Day</label>
        <select  name="day" id="day"><?php
-           // TODO list of day ?>
+           // TODO list of day
+           for ($i = 1; $i <= 31; $i++) {
+               echo "<option value='$i'>$i</option>";
+           }
+           ?>
        </select>
        <label for="month">Month</label>
        <select  name="month" id="month"><?php
-           // TODO list of month ?>
+           // TODO list of month
+           for ($i = 1; $i <= 12; $i++) {
+               echo "<option value='$i'>$i</option>";
+           }
+           ?>
        </select>
        <label for="year">Year</label>
        <select  name="year" id="year"><?php
-           // TODO list of year ?>
+           // TODO list of year
+           for ($i = 1940; $i <= 2022; $i++) {
+               echo "<option value='$i'>$i</option>";
+           }
+           ?>
        </select>
      </form>
      <hr>
      <!-- TODO Instruction : Afficher ce bloc que si dans l'URL il y'a une variable sexe et que ça valeur vaut "fille" -->
-     <p>
-       Je suis une fille
-     </p>
-     <!-- TODO Instruction : Afficher ce bloc que si dans l'URL il y'a une variable sexe et que ça valeur vaut "garçon" -->
-     <p>
-       Je suis un garçon
-     </p>
-     <!-- TODO Instruction : Afficher ce bloc dans les autres cas -->
-     <p>
-       Je suis indéfini
-     </p>
+    <?php
+    if (isset($_GET['sexe'])) {
+        if ($_GET['sexe'] === "fille") {
+
+            echo "<p>Je suis une fille</p>";
+
+        } elseif ($_GET['sexe'] === "garçon") {
+            // TODO Instruction : Afficher ce bloc que si dans l'URL il y'a une variable sexe et que ça valeur vaut "garçon"
+            echo "<p>Je suis un garçon</p>";
+
+        } else {
+            // TODO Instruction : Afficher ce bloc dans les autres cas
+            echo "<p>Je suis indéfini</p>";
+        }
+    }
+    ?>
+
   </body>
 </html>
