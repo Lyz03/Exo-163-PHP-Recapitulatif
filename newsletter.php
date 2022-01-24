@@ -14,7 +14,7 @@
 if (isset($_POST['submit']) && !empty($_POST['email'])) {
     $userEmail = strip_tags($_POST["email"]);
     $date = new DateTime();
-    $date -> setTimezone( new DateTimezone('Europe/Paris'));
+    $date -> setTimezone(new DateTimezone('Europe/Paris'));
 
     $userInfo = trim($userEmail) . "," . $date -> format('d/m/y H\hi' . ",");
 
