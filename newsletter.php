@@ -12,7 +12,6 @@
 <?php
 
 if (isset($_POST['submit']) && !empty($_POST['email'])) {
-    $file = fopen('email.txt', 'a+b');
     $userEmail = strip_tags($_POST["email"]);
     $date = new DateTime();
     $date -> setTimezone( new DateTimezone('Europe/Paris'));
